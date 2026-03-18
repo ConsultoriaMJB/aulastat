@@ -13,148 +13,260 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
       scroll-behavior: smooth;
     }
 
+    :root {
+      --sky-50: #f4fbff;
+      --sky-100: #eaf7ff;
+      --sky-200: #d6efff;
+      --sky-300: #bfe5ff;
+      --sky-400: #7ecfff;
+      --sky-500: #4db8ff;
+      --sky-600: #249fe8;
+      --sky-700: #157cc0;
+      --navy-900: #123047;
+      --slate-900: #183042;
+      --slate-700: #496273;
+      --slate-500: #6c8595;
+      --line: #dbeaf3;
+      --white: #ffffff;
+      --success-bg: #e8fff1;
+      --success-text: #177245;
+      --soon-bg: #eef8ff;
+      --soon-text: #1c6d9e;
+      --shadow: 0 18px 40px rgba(36, 159, 232, 0.08);
+    }
+
     body {
-      background: #f8fafc;
-      color: #1e293b;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #f9fdff 0%, #f3fbff 100%);
+      color: var(--slate-900);
       line-height: 1.6;
     }
 
     .container {
-      width: 90%;
-      max-width: 1100px;
+      width: min(92%, 1160px);
       margin: 0 auto;
     }
 
     header {
-      background: #0f172a;
-      color: white;
-      padding: 18px 0;
       position: sticky;
       top: 0;
       z-index: 1000;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
     }
 
     .nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
+      gap: 18px;
+      padding: 16px 0;
       flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+      border-radius: 14px;
+      background: var(--white);
+      padding: 6px;
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 18px rgba(36, 159, 232, 0.08);
     }
 
     .brand h1 {
       font-size: 28px;
-      margin-bottom: 4px;
+      line-height: 1.1;
+      color: var(--navy-900);
+      margin-bottom: 3px;
     }
 
     .brand p {
       font-size: 14px;
-      color: #cbd5e1;
+      color: var(--slate-700);
     }
 
     .btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       padding: 12px 20px;
-      border-radius: 8px;
+      border-radius: 12px;
       text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s ease;
-      border: none;
+      font-weight: 700;
+      transition: 0.25s ease;
+      border: 1px solid transparent;
       cursor: pointer;
+      font-size: 15px;
     }
 
     .btn-primary {
-      background: #2563eb;
-      color: white;
+      background: linear-gradient(135deg, var(--sky-500), var(--sky-600));
+      color: var(--white);
+      box-shadow: 0 10px 24px rgba(77, 184, 255, 0.22);
     }
 
     .btn-primary:hover {
-      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(77, 184, 255, 0.28);
     }
 
     .btn-secondary {
-      background: white;
-      color: #0f172a;
-      border: 1px solid #cbd5e1;
+      background: var(--white);
+      color: var(--navy-900);
+      border-color: var(--line);
     }
 
     .btn-secondary:hover {
-      background: #f1f5f9;
+      background: var(--sky-50);
+      transform: translateY(-1px);
     }
 
     .hero {
-      background: linear-gradient(135deg, #0f172a, #1d4ed8);
-      color: white;
-      padding: 90px 0 70px;
-      text-align: center;
+      padding: 82px 0 56px;
+      background:
+        radial-gradient(circle at top left, rgba(126, 207, 255, 0.22), transparent 35%),
+        radial-gradient(circle at top right, rgba(191, 229, 255, 0.28), transparent 30%),
+        linear-gradient(180deg, #f6fcff 0%, #edf8ff 100%);
     }
 
-    .hero h2 {
-      font-size: 42px;
-      margin-bottom: 16px;
-      line-height: 1.2;
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: center;
     }
 
-    .hero p {
-      max-width: 760px;
-      margin: 0 auto 20px;
+    .hero-text h2 {
+      font-size: 46px;
+      line-height: 1.15;
+      margin-bottom: 18px;
+      color: var(--navy-900);
+      max-width: 700px;
+    }
+
+    .hero-text p {
       font-size: 18px;
-      color: #e2e8f0;
+      color: var(--slate-700);
+      max-width: 720px;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h3 {
+      font-size: 22px;
+      color: var(--navy-900);
+      margin-bottom: 10px;
+    }
+
+    .hero-card p {
+      color: var(--slate-700);
+      margin-bottom: 16px;
+    }
+
+    .hero-list {
+      list-style: none;
+    }
+
+    .hero-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--slate-700);
+    }
+
+    .hero-list li:last-child {
+      border-bottom: none;
     }
 
     section {
-      padding: 70px 0;
+      padding: 72px 0;
     }
 
     .section-title {
-      font-size: 32px;
-      margin-bottom: 12px;
-      color: #0f172a;
+      font-size: 34px;
       text-align: center;
+      color: var(--navy-900);
+      margin-bottom: 10px;
     }
 
     .section-subtitle {
-      color: #475569;
-      text-align: center;
       max-width: 760px;
-      margin: 0 auto 36px;
+      margin: 0 auto 38px;
+      text-align: center;
+      color: var(--slate-700);
+      font-size: 17px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
       gap: 22px;
     }
 
     .course-card {
-      background: white;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
-      border: 1px solid #e2e8f0;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 28px 22px;
+      box-shadow: var(--shadow);
       text-align: center;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      transition: 0.28s ease;
     }
 
     .course-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
+      transform: translateY(-5px);
+      box-shadow: 0 24px 44px rgba(36, 159, 232, 0.12);
+    }
+
+    .course-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 16px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--sky-100), var(--sky-300));
+      color: var(--sky-700);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 700;
+      border: 1px solid var(--sky-200);
     }
 
     .course-card h3 {
-      font-size: 22px;
+      font-size: 23px;
       margin-bottom: 10px;
-      color: #0f172a;
+      color: var(--navy-900);
     }
 
     .course-card p {
-      color: #475569;
+      color: var(--slate-700);
       margin-bottom: 16px;
-      min-height: 70px;
+      min-height: 72px;
     }
 
     .status {
@@ -162,47 +274,60 @@
       padding: 8px 12px;
       border-radius: 999px;
       font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 16px;
+      font-weight: 700;
+      margin-bottom: 18px;
     }
 
     .status.available {
-      background: #dcfce7;
-      color: #166534;
+      background: var(--success-bg);
+      color: var(--success-text);
     }
 
     .status.soon {
-      background: #fef3c7;
-      color: #92400e;
+      background: var(--soon-bg);
+      color: var(--soon-text);
+    }
+
+    .details-wrap {
+      display: grid;
+      gap: 24px;
     }
 
     .course-detail {
-      background: white;
-      border-radius: 18px;
-      padding: 32px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
-      border: 1px solid #e2e8f0;
-      margin-bottom: 24px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 34px;
+      box-shadow: var(--shadow);
     }
 
     .course-detail h3 {
-      font-size: 28px;
-      color: #0f172a;
+      font-size: 30px;
+      color: var(--navy-900);
       margin-bottom: 10px;
     }
 
     .course-detail p {
-      color: #475569;
+      color: var(--slate-700);
       margin-bottom: 14px;
     }
 
     .course-detail ul {
       padding-left: 20px;
-      margin-bottom: 20px;
-      color: #475569;
+      margin: 14px 0 22px;
+      color: var(--slate-700);
     }
 
-    .course-detail ul li {
+    .course-detail li {
+      margin-bottom: 8px;
+    }
+
+    .detail-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
       margin-bottom: 8px;
     }
 
@@ -213,18 +338,68 @@
       margin-top: 16px;
     }
 
-    footer {
-      background: #020617;
-      color: #cbd5e1;
+    .cta-strip {
+      background: linear-gradient(135deg, var(--sky-100), var(--sky-200));
+      border: 1px solid var(--sky-300);
+      border-radius: 24px;
+      padding: 34px;
       text-align: center;
-      padding: 24px 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-strip h3 {
+      font-size: 30px;
+      color: var(--navy-900);
+      margin-bottom: 10px;
+    }
+
+    .cta-strip p {
+      color: var(--slate-700);
+      max-width: 760px;
+      margin: 0 auto 20px;
+    }
+
+    footer {
+      margin-top: 28px;
+      background: #f0f9ff;
+      border-top: 1px solid var(--line);
+      color: var(--slate-700);
+      text-align: center;
+      padding: 26px 14px;
       font-size: 14px;
-      margin-top: 40px;
+    }
+
+    @media (max-width: 980px) {
+      .hero-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text h2 {
+        font-size: 38px;
+      }
     }
 
     @media (max-width: 768px) {
-      .hero h2 {
-        font-size: 32px;
+      .nav {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .brand {
+        flex-direction: column;
+      }
+
+      .hero {
+        padding: 70px 0 46px;
+      }
+
+      .hero-text h2 {
+        font-size: 30px;
+      }
+
+      .hero-text p,
+      .section-subtitle {
+        font-size: 16px;
       }
 
       .section-title {
@@ -234,6 +409,19 @@
       .course-detail {
         padding: 24px 18px;
       }
+
+      .cta-strip {
+        padding: 26px 18px;
+      }
+
+      .actions,
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -241,9 +429,13 @@
   <header>
     <div class="container nav">
       <div class="brand">
-        <h1>Aulastat</h1>
-        <p>Treinamentos em análise de dados com diversos softwares estatísticos</p>
+        <img src="logo.png" alt="Logotipo Aulastat" class="logo" />
+        <div>
+          <h1>Aulastat</h1>
+          <p>Treinamentos em análise de dados com diversos softwares estatísticos</p>
+        </div>
       </div>
+
       <a
         class="btn btn-primary"
         href="https://wa.me/861421450?text=Olá,%20quero%20saber%20mais%20sobre%20os%20treinamentos%20da%20Aulastat."
@@ -256,39 +448,66 @@
   </header>
 
   <section class="hero">
-    <div class="container">
-      <h2>Escolha o curso que deseja conhecer</h2>
-      <p>
-        A Aulastat reúne treinamentos em análise de dados com diversos softwares.
-        Clique no curso de seu interesse para ver as informações específicas.
-      </p>
-      <a class="btn btn-secondary" href="#cursos">Ver cursos disponíveis</a>
+    <div class="container hero-wrap">
+      <div class="hero-text">
+        <h2>Escolha o software ideal para aprender análise de dados com direção profissional</h2>
+        <p>
+          A Aulastat oferece treinamentos práticos em softwares estatísticos e ferramentas de pesquisa.
+          Veja os cursos disponíveis, escolha o seu e receba atendimento direto para inscrição e pagamento.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#cursos">Ver cursos</a>
+          <a
+            class="btn btn-secondary"
+            href="https://wa.me/861421450?text=Olá,%20quero%20conhecer%20os%20cursos%20da%20Aulastat."
+            target="_blank"
+            rel="noopener"
+          >
+            Pedir orientação
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>O que encontras aqui</h3>
+        <p>Treinamentos pensados para estudantes, pesquisadores e profissionais.</p>
+        <ul class="hero-list">
+          <li>Aprendizagem prática e organizada</li>
+          <li>Foco em pesquisa, dissertação e trabalho aplicado</li>
+          <li>Atendimento direto para inscrição e pagamento</li>
+          <li>Novos cursos a entrar brevemente</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <section id="cursos">
     <div class="container">
-      <h2 class="section-title">Cursos</h2>
+      <h2 class="section-title">Cursos disponíveis</h2>
       <p class="section-subtitle">
-        O curso de SPSS já está disponível. Os demais cursos estarão disponíveis dentro de 20 dias.
+        O curso de SPSS já está disponível. Os cursos de R, STATA, Excel, NVivo, Atlas.ti, KoboToolbox e Google Forms estarão disponíveis dentro de 20 dias.
       </p>
 
       <div class="grid">
         <div class="course-card">
+          <div class="course-icon">SP</div>
           <h3>SPSS</h3>
-          <p>Curso já disponível para análise de dados quantitativos de forma prática.</p>
+          <p>Curso já disponível para análise de dados quantitativos de forma prática e aplicada.</p>
           <span class="status available">Disponível agora</span><br />
           <a class="btn btn-primary" href="#curso-spss">Ver informações</a>
         </div>
 
         <div class="course-card">
+          <div class="course-icon">R</div>
           <h3>R</h3>
-          <p>Curso voltado para análise estatística, gráficos e investigação aplicada.</p>
+          <p>Curso voltado para análise estatística, visualização de dados e investigação aplicada.</p>
           <span class="status soon">Disponível em até 20 dias</span><br />
           <a class="btn btn-secondary" href="#curso-r">Ver informações</a>
         </div>
 
         <div class="course-card">
+          <div class="course-icon">ST</div>
           <h3>STATA</h3>
           <p>Curso com foco em econometria, análise quantitativa e pesquisa científica.</p>
           <span class="status soon">Disponível em até 20 dias</span><br />
@@ -296,6 +515,7 @@
         </div>
 
         <div class="course-card">
+          <div class="course-icon">EX</div>
           <h3>Excel</h3>
           <p>Curso para organização, limpeza, tratamento e análise prática de dados.</p>
           <span class="status soon">Disponível em até 20 dias</span><br />
@@ -303,6 +523,7 @@
         </div>
 
         <div class="course-card">
+          <div class="course-icon">NV</div>
           <h3>NVivo</h3>
           <p>Curso para análise qualitativa, codificação e interpretação temática.</p>
           <span class="status soon">Disponível em até 20 dias</span><br />
@@ -310,6 +531,7 @@
         </div>
 
         <div class="course-card">
+          <div class="course-icon">AT</div>
           <h3>Atlas.ti</h3>
           <p>Curso para organização e análise de dados qualitativos em pesquisas.</p>
           <span class="status soon">Disponível em até 20 dias</span><br />
@@ -317,6 +539,7 @@
         </div>
 
         <div class="course-card">
+          <div class="course-icon">KB</div>
           <h3>KoboToolbox</h3>
           <p>Curso para criação de formulários e recolha digital de dados em campo.</p>
           <span class="status soon">Disponível em até 20 dias</span><br />
@@ -324,6 +547,7 @@
         </div>
 
         <div class="course-card">
+          <div class="course-icon">GF</div>
           <h3>Google Forms</h3>
           <p>Curso para criação de questionários e recolha de dados online.</p>
           <span class="status soon">Disponível em até 20 dias</span><br />
@@ -337,167 +561,203 @@
     <div class="container">
       <h2 class="section-title">Informações dos cursos</h2>
       <p class="section-subtitle">
-        Clique no curso acima e consulte abaixo as informações específicas.
+        Clique no curso de seu interesse e consulte as informações específicas abaixo.
       </p>
 
-      <div class="course-detail" id="curso-spss">
-        <h3>Curso de SPSS</h3>
-        <p><strong>Estado:</strong> Disponível agora</p>
-        <p>
-          O curso de SPSS foi preparado para estudantes, pesquisadores e profissionais que
-          desejam aprender análise de dados de forma prática, organizada e aplicada.
-        </p>
-        <ul>
-          <li>10 dias de aulas gravadas</li>
-          <li>30 dias de acompanhamento com tutor</li>
-          <li>Acesso às aulas por um ano</li>
-          <li>Modalidade 100% online</li>
-          <li>Certificado incluído conforme as condições da organização</li>
-        </ul>
-        <div class="actions">
-          <a
-            class="btn btn-primary"
-            href="https://wa.me/861421450?text=Olá,%20me%20interessei%20pelo%20curso%20de%20SPSS%20e%20quero%20fazer%20os%20pagamentos."
-            target="_blank"
-            rel="noopener"
-          >
-            Falar no WhatsApp
-          </a>
-          <a class="btn btn-secondary" href="#top">Voltar ao início</a>
+      <div class="details-wrap">
+        <div class="course-detail" id="curso-spss">
+          <div class="detail-top">
+            <h3>Curso de SPSS</h3>
+            <span class="status available">Disponível agora</span>
+          </div>
+          <p>
+            O curso de SPSS foi preparado para estudantes, pesquisadores e profissionais que desejam aprender análise de dados de forma prática, organizada e aplicada.
+          </p>
+          <ul>
+            <li>10 dias de aulas gravadas</li>
+            <li>30 dias de acompanhamento com tutor</li>
+            <li>Acesso às aulas por um ano</li>
+            <li>Modalidade 100% online</li>
+            <li>Certificado incluído conforme as condições da organização</li>
+          </ul>
+          <div class="actions">
+            <a
+              class="btn btn-primary"
+              href="https://wa.me/861421450?text=Olá,%20me%20interessei%20pelo%20curso%20de%20SPSS%20e%20quero%20fazer%20os%20pagamentos."
+              target="_blank"
+              rel="noopener"
+            >
+              Falar no WhatsApp
+            </a>
+            <a class="btn btn-secondary" href="#top">Voltar ao início</a>
+          </div>
+        </div>
+
+        <div class="course-detail" id="curso-r">
+          <div class="detail-top">
+            <h3>Curso de R</h3>
+            <span class="status soon">Disponível em até 20 dias</span>
+          </div>
+          <p>
+            Curso em preparação para análise estatística, visualização de dados e pesquisa aplicada.
+          </p>
+          <div class="actions">
+            <a
+              class="btn btn-primary"
+              href="https://wa.me/861421450?text=Olá,%20me%20interessei%20pelo%20curso%20de%20R%20e%20quero%20fazer%20os%20pagamentos."
+              target="_blank"
+              rel="noopener"
+            >
+              Falar no WhatsApp
+            </a>
+            <a class="btn btn-secondary" href="#top">Voltar ao início</a>
+          </div>
+        </div>
+
+        <div class="course-detail" id="curso-stata">
+          <div class="detail-top">
+            <h3>Curso de STATA</h3>
+            <span class="status soon">Disponível em até 20 dias</span>
+          </div>
+          <p>
+            Curso em preparação com foco em econometria, análise quantitativa e investigação científica.
+          </p>
+          <div class="actions">
+            <a
+              class="btn btn-primary"
+              href="https://wa.me/861421450?text=Olá,%20me%20interessei%20pelo%20curso%20de%20STATA%20e%20quero%20fazer%20os%20pagamentos."
+              target="_blank"
+              rel="noopener"
+            >
+              Falar no WhatsApp
+            </a>
+            <a class="btn btn-secondary" href="#top">Voltar ao início</a>
+          </div>
+        </div>
+
+        <div class="course-detail" id="curso-excel">
+          <div class="detail-top">
+            <h3>Curso de Excel</h3>
+            <span class="status soon">Disponível em até 20 dias</span>
+          </div>
+          <p>
+            Curso em preparação para organização, tratamento e análise de dados em ambiente profissional.
+          </p>
+          <div class="actions">
+            <a
+              class="btn btn-primary"
+              href="https://wa.me/861421450?text=Olá,%20me%20interessei%20pelo%20curso%20de%20Excel%20e%20quero%20fazer%20os%20pagamentos."
+              target="_blank"
+              rel="noopener"
+            >
+              Falar no WhatsApp
+            </a>
+            <a class="btn btn-secondary" href="#top">Voltar ao início</a>
+          </div>
+        </div>
+
+        <div class="course-detail" id="curso-nvivo">
+          <div class="detail-top">
+            <h3>Curso de NVivo</h3>
+            <span class="status soon">Disponível em até 20 dias</span>
+          </div>
+          <p>
+            Curso em preparação para análise qualitativa, codificação e interpretação temática.
+          </p>
+          <div class="actions">
+            <a
+              class="btn btn-primary"
+              href="https://wa.me/861421450?text=Olá,%20me%20interessei%20pelo%20curso%20de%20NVivo%20e%20quero%20fazer%20os%20pagamentos."
+              target="_blank"
+              rel="noopener"
+            >
+              Falar no WhatsApp
+            </a>
+            <a class="btn btn-secondary" href="#top">Voltar ao início</a>
+          </div>
+        </div>
+
+        <div class="course-detail" id="curso-atlas">
+          <div class="detail-top">
+            <h3>Curso de Atlas.ti</h3>
+            <span class="status soon">Disponível em até 20 dias</span>
+          </div>
+          <p>
+            Curso em preparação para organização e análise qualitativa de evidências em pesquisas.
+          </p>
+          <div class="actions">
+            <a
+              class="btn btn-primary"
+              href="https://wa.me/861421450?text=Olá,%20me%20interessei%20pelo%20curso%20de%20Atlas.ti%20e%20quero%20fazer%20os%20pagamentos."
+              target="_blank"
+              rel="noopener"
+            >
+              Falar no WhatsApp
+            </a>
+            <a class="btn btn-secondary" href="#top">Voltar ao início</a>
+          </div>
+        </div>
+
+        <div class="course-detail" id="curso-kobo">
+          <div class="detail-top">
+            <h3>Curso de KoboToolbox</h3>
+            <span class="status soon">Disponível em até 20 dias</span>
+          </div>
+          <p>
+            Curso em preparação para recolha digital de dados, criação de formulários e monitoria em campo.
+          </p>
+          <div class="actions">
+            <a
+              class="btn btn-primary"
+              href="https://wa.me/861421450?text=Olá,%20me%20interessei%20pelo%20curso%20de%20KoboToolbox%20e%20quero%20fazer%20os%20pagamentos."
+              target="_blank"
+              rel="noopener"
+            >
+              Falar no WhatsApp
+            </a>
+            <a class="btn btn-secondary" href="#top">Voltar ao início</a>
+          </div>
+        </div>
+
+        <div class="course-detail" id="curso-googleforms">
+          <div class="detail-top">
+            <h3>Curso de Google Forms</h3>
+            <span class="status soon">Disponível em até 20 dias</span>
+          </div>
+          <p>
+            Curso em preparação para criação de formulários, questionários e recolha de dados online.
+          </p>
+          <div class="actions">
+            <a
+              class="btn btn-primary"
+              href="https://wa.me/861421450?text=Olá,%20me%20interessei%20pelo%20curso%20de%20Google%20Forms%20e%20quero%20fazer%20os%20pagamentos."
+              target="_blank"
+              rel="noopener"
+            >
+              Falar no WhatsApp
+            </a>
+            <a class="btn btn-secondary" href="#top">Voltar ao início</a>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="course-detail" id="curso-r">
-        <h3>Curso de R</h3>
-        <p><strong>Estado:</strong> Disponível em até 20 dias</p>
+  <section>
+    <div class="container">
+      <div class="cta-strip">
+        <h3>Precisa de orientação para escolher o curso?</h3>
         <p>
-          Curso em preparação para análise estatística, visualização de dados e pesquisa aplicada.
+          Fale diretamente connosco no WhatsApp e receba ajuda para identificar o treinamento mais adequado ao seu objetivo.
         </p>
-        <div class="actions">
-          <a
-            class="btn btn-primary"
-            href="https://wa.me/861421450?text=Olá,%20me%20interessei%20pelo%20curso%20de%20R%20e%20quero%20fazer%20os%20pagamentos."
-            target="_blank"
-            rel="noopener"
-          >
-            Falar no WhatsApp
-          </a>
-          <a class="btn btn-secondary" href="#top">Voltar ao início</a>
-        </div>
-      </div>
-
-      <div class="course-detail" id="curso-stata">
-        <h3>Curso de STATA</h3>
-        <p><strong>Estado:</strong> Disponível em até 20 dias</p>
-        <p>
-          Curso em preparação com foco em econometria, análise quantitativa e investigação científica.
-        </p>
-        <div class="actions">
-          <a
-            class="btn btn-primary"
-            href="https://wa.me/861421450?text=Olá,%20me%20interessei%20pelo%20curso%20de%20STATA%20e%20quero%20fazer%20os%20pagamentos."
-            target="_blank"
-            rel="noopener"
-          >
-            Falar no WhatsApp
-          </a>
-          <a class="btn btn-secondary" href="#top">Voltar ao início</a>
-        </div>
-      </div>
-
-      <div class="course-detail" id="curso-excel">
-        <h3>Curso de Excel</h3>
-        <p><strong>Estado:</strong> Disponível em até 20 dias</p>
-        <p>
-          Curso em preparação para organização, tratamento e análise de dados em ambiente profissional.
-        </p>
-        <div class="actions">
-          <a
-            class="btn btn-primary"
-            href="https://wa.me/861421450?text=Olá,%20me%20interessei%20pelo%20curso%20de%20Excel%20e%20quero%20fazer%20os%20pagamentos."
-            target="_blank"
-            rel="noopener"
-          >
-            Falar no WhatsApp
-          </a>
-          <a class="btn btn-secondary" href="#top">Voltar ao início</a>
-        </div>
-      </div>
-
-      <div class="course-detail" id="curso-nvivo">
-        <h3>Curso de NVivo</h3>
-        <p><strong>Estado:</strong> Disponível em até 20 dias</p>
-        <p>
-          Curso em preparação para análise qualitativa, codificação e interpretação temática.
-        </p>
-        <div class="actions">
-          <a
-            class="btn btn-primary"
-            href="https://wa.me/861421450?text=Olá,%20me%20interessei%20pelo%20curso%20de%20NVivo%20e%20quero%20fazer%20os%20pagamentos."
-            target="_blank"
-            rel="noopener"
-          >
-            Falar no WhatsApp
-          </a>
-          <a class="btn btn-secondary" href="#top">Voltar ao início</a>
-        </div>
-      </div>
-
-      <div class="course-detail" id="curso-atlas">
-        <h3>Curso de Atlas.ti</h3>
-        <p><strong>Estado:</strong> Disponível em até 20 dias</p>
-        <p>
-          Curso em preparação para organização e análise qualitativa de evidências em pesquisas.
-        </p>
-        <div class="actions">
-          <a
-            class="btn btn-primary"
-            href="https://wa.me/861421450?text=Olá,%20me%20interessei%20pelo%20curso%20de%20Atlas.ti%20e%20quero%20fazer%20os%20pagamentos."
-            target="_blank"
-            rel="noopener"
-          >
-            Falar no WhatsApp
-          </a>
-          <a class="btn btn-secondary" href="#top">Voltar ao início</a>
-        </div>
-      </div>
-
-      <div class="course-detail" id="curso-kobo">
-        <h3>Curso de KoboToolbox</h3>
-        <p><strong>Estado:</strong> Disponível em até 20 dias</p>
-        <p>
-          Curso em preparação para recolha digital de dados, criação de formulários e monitoria em campo.
-        </p>
-        <div class="actions">
-          <a
-            class="btn btn-primary"
-            href="https://wa.me/861421450?text=Olá,%20me%20interessei%20pelo%20curso%20de%20KoboToolbox%20e%20quero%20fazer%20os%20pagamentos."
-            target="_blank"
-            rel="noopener"
-          >
-            Falar no WhatsApp
-          </a>
-          <a class="btn btn-secondary" href="#top">Voltar ao início</a>
-        </div>
-      </div>
-
-      <div class="course-detail" id="curso-googleforms">
-        <h3>Curso de Google Forms</h3>
-        <p><strong>Estado:</strong> Disponível em até 20 dias</p>
-        <p>
-          Curso em preparação para criação de formulários, questionários e recolha de dados online.
-        </p>
-        <div class="actions">
-          <a
-            class="btn btn-primary"
-            href="https://wa.me/861421450?text=Olá,%20me%20interessei%20pelo%20curso%20de%20Google%20Forms%20e%20quero%20fazer%20os%20pagamentos."
-            target="_blank"
-            rel="noopener"
-          >
-            Falar no WhatsApp
-          </a>
-          <a class="btn btn-secondary" href="#top">Voltar ao início</a>
-        </div>
+        <a
+          class="btn btn-primary"
+          href="https://wa.me/861421450?text=Olá,%20preciso%20de%20ajuda%20para%20escolher%20o%20curso%20mais%20adequado%20na%20Aulastat."
+          target="_blank"
+          rel="noopener"
+        >
+          Pedir orientação no WhatsApp
+        </a>
       </div>
     </div>
   </section>
